@@ -76,11 +76,11 @@ export default function DeleteProjectModal() {
 
                                 <Dialog.Title
                                     as="h3"
-                                    className="font-black text-4xl  my-5"
-                                >Eliminar Proyecto </Dialog.Title>
+                                    className="font-black text-4xl my-5"
+                                >Delete Project</Dialog.Title>
 
-                                <p className="text-xl font-bold">Confirma la eliminación del proyecto {''}
-                                    <span className="text-fuchsia-600">colocando tu password</span>
+                                <p className="text-xl font-bold">
+                                Confirm project deletion by entering your <span className="text-fuchsia-600">password</span>
                                 </p>
 
                                 <form
@@ -100,7 +100,7 @@ export default function DeleteProjectModal() {
                                             placeholder="Password Inicio de Sesión"
                                             className="w-full p-3  border-gray-300 border"
                                             {...register("password", {
-                                                required: "El password es obligatorio",
+                                                required: "Password is required",
                                             })}
                                         />
                                         {errors.password && (
@@ -111,7 +111,7 @@ export default function DeleteProjectModal() {
                                     <input
                                         type="submit"
                                         className=" bg-fuchsia-600 hover:bg-fuchsia-700 w-full p-3  text-white font-black  text-xl cursor-pointer"
-                                        value='Eliminar Proyecto'
+                                        value='Delete Project'
                                     />
                                 </form>
                             </Dialog.Panel>

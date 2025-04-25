@@ -12,15 +12,15 @@ export default function ProjectForm({errors, register} : ProjectFormProps) {
         <>
             <div className="mb-5 space-y-3">
                 <label htmlFor="projectName" className="text-sm uppercase font-bold">
-                    Nombre del Proyecto
+                Project Name
                 </label>
                 <input
                     id="projectName"
                     className="w-full p-3  border border-gray-200"
                     type="text"
-                    placeholder="Nombre del Proyecto"
+                    placeholder="Enter project name"
                     {...register("projectName", {
-                        required: "El Titulo del Proyecto es obligatorio",
+                        required: "Project name is required",
                     })}
                 />
 
@@ -31,15 +31,15 @@ export default function ProjectForm({errors, register} : ProjectFormProps) {
 
             <div className="mb-5 space-y-3">
                 <label htmlFor="clientName" className="text-sm uppercase font-bold">
-                    Nombre Cliente
+                    Client Name
                 </label>
                 <input
                     id="clientName"
                     className="w-full p-3  border border-gray-200"
                     type="text"
-                    placeholder="Nombre del Cliente"
+                    placeholder="Enter client name"
                     {...register("clientName", {
-                        required: "El Nombre del Cliente es obligatorio",
+                        required: "Client name is required",
                     })}
                 />
 
@@ -50,14 +50,14 @@ export default function ProjectForm({errors, register} : ProjectFormProps) {
 
             <div className="mb-5 space-y-3">
                 <label htmlFor="description" className="text-sm uppercase font-bold">
-                    Descripción
+                Description
                 </label>
                 <textarea
                     id="description"
                     className="w-full p-3  border border-gray-200"
                     placeholder="Descripción del Proyecto"
                     {...register("description", {
-                        required: "Una descripción del proyecto es obligatoria"
+                        required: "Description is required"
                     })}
                 />
 

@@ -33,11 +33,11 @@ export default function LoginView() {
   return (
     <>
 
-      <h1 className="text-5xl font-black text-white">Iniciar Sesión</h1>
-        <p className="text-2xl font-light text-white mt-5">
-            Comienza a planear tus proyectos {''}
-            <span className=" text-fuchsia-500 font-bold">Iniciando sesión</span>
-        </p>
+      <h1 className="text-5xl font-black text-white">Log In</h1>
+      <p className="text-2xl font-light text-white mt-5">
+        Start managing your projects {''}
+        <span className=" text-fuchsia-500 font-bold">by logging in</span>
+      </p>
       <form
         onSubmit={handleSubmit(handleLogin)}
         className="space-y-8 p-10 bg-white"
@@ -51,13 +51,13 @@ export default function LoginView() {
           <input
             id="email"
             type="email"
-            placeholder="Email de Registro"
+            placeholder="Your account email"
             className="w-full p-3  border-gray-300 border"
             {...register("email", {
-              required: "El Email es obligatorio",
+              required: "Email is required",
               pattern: {
                 value: /\S+@\S+\.\S+/,
-                message: "E-mail no válido",
+                message: "Enter a valid email address",
               },
             })}
           />
@@ -73,10 +73,10 @@ export default function LoginView() {
 
           <input
             type="password"
-            placeholder="Password de Registro"
+            placeholder="Your password"
             className="w-full p-3  border-gray-300 border"
             {...register("password", {
-              required: "El Password es obligatorio",
+              required: "Password is required",
             })}
           />
           {errors.password && (
@@ -86,20 +86,24 @@ export default function LoginView() {
 
         <input
           type="submit"
-          value='Iniciar Sesión'
+          value='Log In'
           className="bg-fuchsia-600 hover:bg-fuchsia-700 w-full p-3  text-white font-black  text-xl cursor-pointer"
         />
 
         <nav className="mt-10 flex flex-col space-y-4">
           <Link
-            to={'/auth/register'}
+            to='/auth/register'
             className="text-center text-gray-500 font-normal"
-          >¿No tienes cuenta? Crear Una</Link>
+          >
+            Don’t have an account? Create one
+          </Link>
 
           <Link
-            to={'/auth/forgot-password'}
+            to='/auth/forgot-password'
             className="text-center text-gray-500 font-normal"
-          >¿Olvidaste tu contraseña? Reestablecer</Link>
+          >
+            Forgot your password? Reset it
+          </Link>
         </nav>
       </form>
     </>

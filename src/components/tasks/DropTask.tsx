@@ -26,7 +26,7 @@ export default function DropTask({status} : DropTaskProps) {
         ref={setNodeRef}
         className="text-xs fomt-semibold uppercase p-2 border border-dashed border-slate-500 mt-5 grid place-content-center text-slate-500"
         >
-            Soltar tarea aquí
+            Drop task here
         </div>
         )}
     </>

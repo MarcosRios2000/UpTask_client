@@ -31,11 +31,11 @@ export default function ForgotPasswordView() {
   return (
     <>
 
-        <h1 className="text-5xl font-black text-white">Reestablecer Password</h1>
+        <h1 className="text-5xl font-black text-white">Reset Your Password</h1>
         <p className="text-2xl font-light text-white mt-5">
-            ¿Olvidaste tu password? coloca tu email y {''}
-            <span className=" text-fuchsia-500 font-bold"> reestablece tu password</span>
-        </p>
+        Forgot your password? Enter your email and {''}
+        <span className=" text-fuchsia-500 font-bold">we’ll send you instructions</span>
+      </p>
 
       <form
         onSubmit={handleSubmit(handleForgotPassword)}
@@ -50,13 +50,13 @@ export default function ForgotPasswordView() {
           <input
             id="email"
             type="email"
-            placeholder="Email de Registro"
+            placeholder="Your account email"
             className="w-full p-3  border-gray-300 border"
             {...register("email", {
-              required: "El Email de registro es obligatorio",
+              required: "Email is required",
               pattern: {
                 value: /\S+@\S+\.\S+/,
-                message: "E-mail no válido",
+                message: "Enter a valid email address",
               },
             })}
           />
@@ -67,7 +67,7 @@ export default function ForgotPasswordView() {
 
         <input
           type="submit"
-          value='Enviar Instrucciones'
+          value='Send Instructions'
           className="bg-fuchsia-600 hover:bg-fuchsia-700 w-full p-3  text-white font-black  text-xl cursor-pointer"
         />
       </form>
@@ -77,14 +77,14 @@ export default function ForgotPasswordView() {
           to='/auth/login'
           className="text-center text-gray-300 font-normal"
         >
-          ¿Ya tienes cuenta? Iniciar Sesión
+          Already have an account? Log in
         </Link>
 
         <Link
           to='/auth/register'
           className="text-center text-gray-300 font-normal"
         >
-          ¿No tienes cuenta? Crea una
+          Don’t have an account? Create one
         </Link>
       </nav>
     </>

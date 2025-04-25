@@ -48,7 +48,7 @@ export default function AddNoteForm() {
         noValidate
     >
         <div className="flex flex-col gap-2">
-            <label className="font-bold" htmlFor="content">Crear Nota</label>
+            <label className="font-bold" htmlFor="content">Add note</label>
             <input 
                 id="content"
                 type="text"

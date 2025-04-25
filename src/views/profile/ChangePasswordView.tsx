@@ -1,12 +1,12 @@
 import { useForm } from "react-hook-form"
 import ErrorMessage from "@/components/ErrorMessage"
-import { UpdateCurrentUserPasswordForm } from "@/types/index";
-import { changePassword } from "@/api/ProfileAPI";
-import { toast } from "react-toastify";
-import { useMutation } from "@tanstack/react-query";
+import { UpdateCurrentUserPasswordForm } from "@/types/index"
+import { changePassword } from "@/api/ProfileAPI"
+import { toast } from "react-toastify"
+import { useMutation } from "@tanstack/react-query"
 
 export default function ChangePasswordView() {
-  const initialValues : UpdateCurrentUserPasswordForm = {
+  const initialValues: UpdateCurrentUserPasswordForm = {
     current_password: '',
     password: '',
     password_confirmation: ''
@@ -18,36 +18,37 @@ export default function ChangePasswordView() {
     mutationFn: changePassword,
     onError: (error) => toast.error(error.message),
     onSuccess: (data) => toast.success(data)
-})
+  })
 
-  const password = watch('password');
+  const password = watch('password')
 
-  const handleChangePassword = (formData : UpdateCurrentUserPasswordForm) => mutate(formData)
+  const handleChangePassword = (formData: UpdateCurrentUserPasswordForm) => mutate(formData)
 
   return (
     <>
       <div className="mx-auto max-w-3xl">
-
-        <h1 className="text-5xl font-black ">Cambiar Password</h1>
-        <p className="text-2xl font-light text-gray-500 mt-5">Utiliza este formulario para cambiar tu password</p>
+        <h1 className="text-5xl font-black">Change Password</h1>
+        <p className="text-2xl font-light text-gray-500 mt-5">
+          Use the form below to update your password
+        </p>
 
         <form
           onSubmit={handleSubmit(handleChangePassword)}
-          className=" mt-14 space-y-5 bg-white shadow-lg p-10 rounded-lg"
+          className="mt-14 space-y-5 bg-white shadow-lg p-10 rounded-lg"
           noValidate
         >
           <div className="mb-5 space-y-3">
             <label
               className="text-sm uppercase font-bold"
               htmlFor="current_password"
-            >Password Actual</label>
+            >Current Password</label>
             <input
               id="current_password"
               type="password"
-              placeholder="Password Actual"
-              className="w-full p-3  border border-gray-200"
+              placeholder="Enter your current password"
+              className="w-full p-3 border border-gray-200"
               {...register("current_password", {
-                required: "El password actual es obligatorio",
+                required: "Current password is required",
               })}
             />
             {errors.current_password && (
@@ -59,17 +60,17 @@ export default function ChangePasswordView() {
             <label
               className="text-sm uppercase font-bold"
               htmlFor="password"
-            >Nuevo Password</label>
+            >New Password</label>
             <input
               id="password"
               type="password"
-              placeholder="Nuevo Password"
-              className="w-full p-3  border border-gray-200"
+              placeholder="Create a new password"
+              className="w-full p-3 border border-gray-200"
               {...register("password", {
-                required: "El Nuevo Password es obligatorio",
+                required: "New password is required",
                 minLength: {
                   value: 8,
-                  message: 'El Password debe ser mínimo de 8 caracteres'
+                  message: 'Password must be at least 8 characters'
                 }
               })}
             />
@@ -77,20 +78,21 @@ export default function ChangePasswordView() {
               <ErrorMessage>{errors.password.message}</ErrorMessage>
             )}
           </div>
+
           <div className="mb-5 space-y-3">
             <label
               htmlFor="password_confirmation"
               className="text-sm uppercase font-bold"
-            >Repetir Password</label>
+            >Confirm New Password</label>
 
             <input
               id="password_confirmation"
               type="password"
-              placeholder="Repetir Password"
-              className="w-full p-3  border border-gray-200"
+              placeholder="Repeat your new password"
+              className="w-full p-3 border border-gray-200"
               {...register("password_confirmation", {
-                required: "Este campo es obligatorio",
-                validate: value => value === password || 'Los Passwords no son iguales'
+                required: "Please confirm your new password",
+                validate: value => value === password || 'Passwords do not match'
               })}
             />
             {errors.password_confirmation && (
@@ -100,7 +102,7 @@ export default function ChangePasswordView() {
 
           <input
             type="submit"
-            value='Cambiar Password'
+            value='Update Password'
             className="bg-fuchsia-600 w-full p-3 text-white uppercase font-bold hover:bg-fuchsia-700 cursor-pointer transition-colors"
           />
         </form>

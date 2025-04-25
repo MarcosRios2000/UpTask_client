@@ -5,7 +5,7 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { getTaskById, updateStatus } from '@/api/TaskAPI';
 import { toast } from 'react-toastify';
 import { formatDate } from '../../utils/utils';
-import { statusTranslations } from '@/locales/es';
+import { statusTranslations } from '@/locales/en';
 import { TaskStatus } from '@/types/index';
 import NotesPanel from '../notes/NotesPanel';
 
@@ -82,24 +82,24 @@ export default function TaskModalDetails() {
                                 leaveTo="opacity-0 scale-95"
                             >
                                 <Dialog.Panel className="w-full max-w-4xl transform overflow-hidden rounded-2xl bg-white text-left align-middle shadow-xl transition-all p-16">
-                                    <p className='text-sm text-slate-400'>Agregada el: { formatDate(data.createdAt) }</p>
-                                    <p className='text-sm text-slate-400'>Última actualización: { formatDate(data.updatedAt) }</p>
+                                    <p className='text-sm text-slate-400'>Created on: { formatDate(data.createdAt) }</p>
+                                    <p className='text-sm text-slate-400'>Last updated: { formatDate(data.updatedAt) }</p>
                                     <Dialog.Title
                                         as="h3"
                                         className="font-black text-4xl text-slate-600 my-5"
                                     >{data.name}
                                     </Dialog.Title>
-                                    <p className='text-lg text-slate-500 mb-2'>Descripción: {data.description}</p>
+                                    <p className='text-lg text-slate-500 mb-2'>Description: {data.description}</p>
 
                                     { data.completedBy.length ? (
                                         <>
-                                         <p className='font-bold text-2xl text-slate-600 my-5'>Historial de Cambios</p>
+                                         <p className='font-bold text-2xl text-slate-600 my-5'>Change History</p>
                                             <ul className='list-decimal'>
                                                 {data.completedBy.map( (activityLog) => (
                                                     <li key={activityLog._id}>
                                                         <span className='font-bold text-slate-600'>
                                                             {statusTranslations[activityLog.status]  }
-                                                        </span>{' '} por: {activityLog.user.name}
+                                                        </span>{' '} by: {activityLog.user.name}
                                                     </li>
                                                 ))}
                                             </ul>
@@ -111,7 +111,7 @@ export default function TaskModalDetails() {
 
                                     <div className='my-5 space-y-3'>
                                         <label className='font-bold'>
-                                            Estado Actual:
+                                        Current Status:
                                         </label>
                                         <select
                                             className='w-full p-3 bg-white border border-gray-300'

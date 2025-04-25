@@ -36,10 +36,10 @@ export default function RegisterView() {
 
   return (
     <>
-      <h1 className="text-5xl font-black text-white">Crear Cuenta</h1>
+      <h1 className="text-5xl font-black text-white">Create an Account</h1>
       <p className="text-2xl font-light text-white mt-5">
-        Llena el formulario para {''}
-        <span className=" text-fuchsia-500 font-bold"> crear tu cuenta</span>
+        Fill out the form below to{' '}
+        <span className=" text-fuchsia-500 font-bold">get started</span>
       </p>
 
       <form
@@ -55,13 +55,13 @@ export default function RegisterView() {
           <input
             id="email"
             type="email"
-            placeholder="Email de Registro"
+            placeholder="Enter your email"
             className="w-full p-3  border-gray-300 border"
             {...register("email", {
-              required: "El Email de registro es obligatorio",
+              required: "Email is required",
               pattern: {
                 value: /\S+@\S+\.\S+/,
-                message: "E-mail no válido",
+                message: "Invalid email format",
               },
             })}
           />
@@ -73,13 +73,13 @@ export default function RegisterView() {
         <div className="flex flex-col gap-5">
           <label
             className="font-normal text-2xl"
-          >Nombre</label>
+          >Name</label>
           <input
             type="name"
-            placeholder="Nombre de Registro"
+            placeholder="Your name"
             className="w-full p-3  border-gray-300 border"
             {...register("name", {
-              required: "El Nombre de usuario es obligatorio",
+              required: "Name is required",
             })}
           />
           {errors.name && (
@@ -94,13 +94,13 @@ export default function RegisterView() {
 
           <input
             type="password"
-            placeholder="Password de Registro"
+            placeholder="Create a password"
             className="w-full p-3  border-gray-300 border"
             {...register("password", {
-              required: "El Password es obligatorio",
+              required: "Password is required",
               minLength: {
                 value: 8,
-                message: 'El Password debe ser mínimo de 8 caracteres'
+                message: 'Password must be at least 8 characters'
               }
             })}
           />
@@ -112,16 +112,16 @@ export default function RegisterView() {
         <div className="flex flex-col gap-5">
           <label
             className="font-normal text-2xl"
-          >Repetir Password</label>
+          >Repeat  Password</label>
 
           <input
             id="password_confirmation"
             type="password"
-            placeholder="Repite Password de Registro"
+            placeholder="Confirm your password"
             className="w-full p-3  border-gray-300 border"
             {...register("password_confirmation", {
-              required: "Repetir Password es obligatorio",
-              validate: value => value === password || 'Los Passwords no son iguales'
+              required: "Please confirm your password",
+              validate: value => value === password || 'Passwords do not match'
             })}
           />
 
@@ -132,21 +132,25 @@ export default function RegisterView() {
 
         <input
           type="submit"
-          value='Registrarme'
+          value='Sign up'
           className="bg-fuchsia-600 hover:bg-fuchsia-700 w-full p-3  text-white font-black  text-xl cursor-pointer"
         />
       </form>
 
       <nav className="mt-10 flex flex-col space-y-4">
-          <Link
-            to={'/auth/login'}
-            className="text-center text-gray-300 font-normal"
-          >¿Ya tienes cuenta? Iniciar Sesión</Link>
+      <Link
+          to={'/auth/login'}
+          className="text-center text-gray-300 font-normal"
+        >
+          Already have an account? Log in
+        </Link>
 
-          <Link
-            to={'/auth/forgot-password'}
-            className="text-center text-gray-500 font-normal"
-          >¿Olvidaste tu contraseña? Reestablecer</Link>
+        <Link
+          to={'/auth/forgot-password'}
+          className="text-center text-gray-500 font-normal"
+        >
+          Forgot your password?
+        </Link>
         </nav>
     </>
   )

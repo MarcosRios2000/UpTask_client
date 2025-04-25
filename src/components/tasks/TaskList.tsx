@@ -1,7 +1,7 @@
 import { DndContext, DragEndEvent } from '@dnd-kit/core'
 import { Project, TaskProject, TaskStatus } from "@/types/index"
 import TaskCard from "./TaskCard"
-import { statusTranslations } from "@/locales/es"
+import { statusTranslations } from "@/locales/en"
 import DropTask from "./DropTask"
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { updateStatus } from '@/api/TaskAPI'
@@ -86,7 +86,7 @@ export default function TaskList({tasks, canEdit} : TaskListProps) {
 
   return (
     <>
-           <h2 className="text-5xl font-black my-10">Tareas</h2>
+           <h2 className="text-5xl font-black my-10">Tasks</h2>
             <div className='flex gap-5 overflow-x-scroll 2xl:overflow-auto pb-32'>
                 <DndContext onDragEnd={handleDragEnd}>
                 {Object.entries(groupedTasks).map(([status, tasks]) => (
@@ -101,7 +101,7 @@ export default function TaskList({tasks, canEdit} : TaskListProps) {
 
                         <ul className='mt-5 space-y-5'>
                             {tasks.length === 0 ? (
-                                <li className="text-gray-500 text-center pt-3">No Hay tareas</li>
+                                <li className="text-gray-500 text-center pt-3">No tasks yet</li>
                             ) : (
                                 tasks.map(task => <TaskCard key={task._id} task={task} canEdit={canEdit} />)
                             )}

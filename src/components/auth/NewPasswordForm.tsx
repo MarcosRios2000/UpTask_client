@@ -53,17 +53,17 @@ export default function NewPasswordForm({token} : NewPasswordFormProps) {
                 <div className="flex flex-col gap-5">
                     <label
                         className="font-normal text-2xl"
-                    >Password</label>
+                    >New password</label>
 
                     <input
                         type="password"
-                        placeholder="Password de Registro"
+                        placeholder="Enter your new password"
                         className="w-full p-3  border-gray-300 border"
                         {...register("password", {
-                            required: "El Password es obligatorio",
+                            required: "Password is required",
                             minLength: {
                                 value: 8,
-                                message: 'El Password debe ser mínimo de 8 caracteres'
+                                message: 'Password must be at least 8 characters'
                             }
                         })}
                     />
@@ -75,16 +75,16 @@ export default function NewPasswordForm({token} : NewPasswordFormProps) {
                 <div className="flex flex-col gap-5">
                     <label
                         className="font-normal text-2xl"
-                    >Repetir Password</label>
+                    >Repeat password</label>
 
                     <input
                         id="password_confirmation"
                         type="password"
-                        placeholder="Repite Password de Registro"
+                        placeholder="Repeat your password"
                         className="w-full p-3  border-gray-300 border"
                         {...register("password_confirmation", {
-                            required: "Repetir Password es obligatorio",
-                            validate: value => value === password || 'Los Passwords no son iguales'
+                            required: "Repeat password is required",
+                            validate: value => value === password || 'Passwords do not match'
                         })}
                     />
 
@@ -95,7 +95,7 @@ export default function NewPasswordForm({token} : NewPasswordFormProps) {
 
                 <input
                     type="submit"
-                    value='Establecer Password'
+                    value='Set new password'
                     className="bg-fuchsia-600 hover:bg-fuchsia-700 w-full p-3  text-white font-black  text-xl cursor-pointer"
                 />
             </form>

@@ -14,10 +14,10 @@ export default function NotesPanel({notes} : NotePanelProps) {
         <div className="divide-y divide-gray-100 mt-10">
           {notes.length ? (
             <>
-              <p className="font-bold text-2xl text-slate-600 my-5">Notas:</p>
+              <p className="font-bold text-2xl text-slate-600 my-5">Notes:</p>
               {notes.map(note => <NoteDetail key={note._id} note={note} />)}
             </>
-          ) : <p className="text-gray-500 text-center pt-3">No hay noyas</p> }
+          ) : <p className="text-gray-500 text-center pt-3">No notes yet</p> }
         </div>
     </>
   )

@@ -36,7 +36,7 @@ export default function NoteDetail({note} : NoteDetailProps) {
     })
     
 
-    if(isLoading) return 'Cargando...'
+    if(isLoading) return 'Loading...'
 
   return (
     <div className="p-3 flex justify-between items-center">
@@ -53,7 +53,7 @@ export default function NoteDetail({note} : NoteDetailProps) {
                 type="button"
                 className="bg-red-400 hover:bg-red-500 p-2 text-xs text-white font-bold cursor-pointer transition-colors"
                 onClick={() => mutate({projectId, taskId, noteId: note._id})}
-            >Eliminar</button>
+            >Delete</button>
         )}
     </div>
   )

@@ -81,11 +81,11 @@ export default function AddTaskModal() {
                                         as="h3"
                                         className="font-black text-4xl  my-5"
                                     >
-                                        Nueva Tarea
+                                        New Task
                                     </Dialog.Title>
 
-                                    <p className="text-xl font-bold">Llena el formulario y crea  {''}
-                                        <span className="text-fuchsia-600">una tarea</span>
+                                    <p className="text-xl font-bold">Fill out the form to create a{' '}
+                                        <span className="text-fuchsia-600">new task</span>
                                     </p>
                                     <form 
                                     noValidate 
@@ -98,7 +98,7 @@ export default function AddTaskModal() {
                                         />
                                         <input
                                             type="submit"
-                                            value='Guardar Tarea'
+                                            value='Save Task'
                                             className="bg-fuchsia-600 hover:bg-fuchsia-700 w-full p-3 text-white uppercase font-bold cursor-pointer transition-colors"
                                             />
                                     </form>

@@ -38,7 +38,7 @@ export default function NewPasswordToken({token, setToken, setIsValidToken} : Ne
             >
                 <label
                     className="font-normal text-2xl text-center block"
-                >Código de 6 dígitos</label>
+                >6-digit code</label>
                 <div className="flex justify-center gap-5">
                     <PinInput value={token} onChange={handleChange} onComplete={handleComplete}>
                         <PinInputField className="h-10 w-10 p-3 rounded-lg border-gray-300 border placeholder-white" />
@@ -55,7 +55,7 @@ export default function NewPasswordToken({token, setToken, setIsValidToken} : Ne
                     to='/auth/forgot-password'
                     className="text-center text-gray-300 font-normal"
                 >
-                    Solicitar un nuevo Código
+                    Request a new code
                 </Link>
             </nav>
         </>

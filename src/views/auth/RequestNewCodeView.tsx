@@ -31,11 +31,11 @@ export default function RegisterView() {
 
     return (
         <>
-            <h1 className="text-5xl font-black text-white">Solicitar Código de Confirmación</h1>
+            <h1 className="text-5xl font-black text-white">Request Confirmation Code</h1>
             <p className="text-2xl font-light text-white mt-5">
-                Coloca tu e-mail para recibir {''}
-                <span className=" text-fuchsia-500 font-bold"> un nuevo código</span>
-            </p>
+        Enter your email and we’ll send you {''}
+        <span className="text-fuchsia-500 font-bold"> a new confirmation code</span>
+      </p>
 
             <form
                 onSubmit={handleSubmit(handleRequestCode)}
@@ -50,13 +50,13 @@ export default function RegisterView() {
                     <input
                         id="email"
                         type="email"
-                        placeholder="Email de Registro"
+                        placeholder="Enter your email"
                         className="w-full p-3 rounded-lg border-gray-300 border"
                         {...register("email", {
-                            required: "El Email de registro es obligatorio",
+                            required: "Email is required",
                             pattern: {
                                 value: /\S+@\S+\.\S+/,
-                                message: "E-mail no válido",
+                                message: "Invalid email format",
                             },
                         })}
                     />
@@ -67,25 +67,25 @@ export default function RegisterView() {
 
                 <input
                     type="submit"
-                    value='Enviar Código'
+                    value='Send Code'
                     className="bg-fuchsia-600 hover:bg-fuchsia-700 w-full p-3 rounded-lg text-white font-black  text-xl cursor-pointer"
                 />
             </form>
 
             <nav className="mt-10 flex flex-col space-y-4">
-                <Link
-                    to='/auth/login'
-                    className="text-center text-gray-300 font-normal"
-                >
-                    ¿Ya tienes cuenta? Iniciar Sesión
-                </Link>
-                <Link
-                    to='/auth/forgot-password'
-                    className="text-center text-gray-300 font-normal"
-                >
-                    ¿Olvidaste tu contraseña? Reestablecer
-                </Link>
-            </nav>
+        <Link
+          to='/auth/login'
+          className="text-center text-gray-300 font-normal"
+        >
+          Already have an account? Log in
+        </Link>
+        <Link
+          to='/auth/forgot-password'
+          className="text-center text-gray-300 font-normal"
+        >
+          Forgot your password?
+        </Link>
+      </nav>
         </>
     )
 }
