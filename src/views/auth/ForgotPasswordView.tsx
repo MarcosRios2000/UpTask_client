@@ -31,9 +31,9 @@ export default function ForgotPasswordView() {
   return (
     <>
 
-        <h1 className="text-5xl font-black text-white">Reset Your Password</h1>
-        <p className="text-2xl font-light text-white mt-5">
-        Forgot your password? Enter your email and {''}
+        <h1 className="text-5xl font-black text-white text-center leading-tight">Reset Your Password</h1>
+        <p className="text-xl font-light text-white mt-5 text-center leading-normal line-clamp-2">
+        Forgot your password? Enter your email and {' '}
         <span className=" text-fuchsia-500 font-bold">we’ll send you instructions</span>
       </p>
 
