@@ -12,7 +12,7 @@ export default function ForgotPasswordView() {
   }
   const { register, handleSubmit, reset, formState: { errors } } = useForm({ defaultValues: initialValues });
 
-  const {mutate} = useMutation({
+  const {mutate, isPending} = useMutation({
     mutationFn: forgotPassword, 
     onError: (error) => {
         toast.error(error.message)
@@ -65,11 +65,18 @@ export default function ForgotPasswordView() {
           )}
         </div>
 
-        <input
+  
+           <button
           type="submit"
-          value='Send Instructions'
-          className="bg-fuchsia-600 hover:bg-fuchsia-700 w-full p-3  text-white font-black  text-xl cursor-pointer"
-        />
+          disabled={isPending}
+          className="bg-fuchsia-600 hover:bg-fuchsia-700 w-full p-3 text-white font-black text-xl cursor-pointer rounded flex justify-center items-center disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          {isPending ? (
+            <div className="w-6 h-6 border-4 border-white border-t-fuchsia-700 border-solid rounded-full animate-spin"></div>
+          ) : (
+            'Send Instructions'
+          )}
+        </button>
       </form>
 
       <nav className="mt-10 flex flex-col space-y-4">
