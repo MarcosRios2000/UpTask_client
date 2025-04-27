@@ -1,5 +1,5 @@
 import Logo from '@/components/Logo';
-import { Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 
 
@@ -8,8 +8,11 @@ export default function AuthLayout() {
       <>
         <div className="min-h-screen bg-gray-800 flex items-center justify-center overflow-x-hidden px-4">
           <div className="w-full max-w-md py-10 lg:py-20">
-            <Logo />
-  
+          <div className="flex justify-center">
+            <Link to="/">
+              <Logo />
+            </Link>
+          </div>
             <div className="mt-10">
               <Outlet />
             </div>
