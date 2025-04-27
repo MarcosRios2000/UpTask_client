@@ -28,7 +28,7 @@ export default function ConfirmAccountView() {
   };
 
   const handleComplete = (token: ConfirmToken['token']) => {
-    mutate({ token });
+    mutate({ token: token.trim() });
   };
 
   return (
