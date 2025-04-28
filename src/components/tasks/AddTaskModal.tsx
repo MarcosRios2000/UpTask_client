@@ -27,7 +27,7 @@ export default function AddTaskModal() {
 
     const queryClient = useQueryClient()
 
-    const { mutate } = useMutation({
+    const { mutate, isPending } = useMutation({
         mutationFn: createTask, 
         onError: (error) => {
             toast.error(error.message)
@@ -96,11 +96,20 @@ export default function AddTaskModal() {
                                         register={register}
                                         errors={errors}
                                         />
-                                        <input
-                                            type="submit"
-                                            value='Save Task'
-                                            className="bg-fuchsia-600 hover:bg-fuchsia-700 w-full p-3 text-white uppercase font-bold cursor-pointer transition-colors"
-                                            />
+                                      
+                                        <button
+                                    type="submit"
+                                    disabled={isPending}
+                                    className="bg-fuchsia-600 hover:bg-fuchsia-700 w-full p-3 text-white font-black text-xl cursor-pointer rounded flex justify-center items-center disabled:opacity-50 disabled:cursor-not-allowed"
+                                    >
+                                    {isPending ? (
+                                        <div className="w-6 h-6 border-4 border-white border-t-fuchsia-700 border-solid rounded-full animate-spin"></div>
+                                    ) : (
+                                        'Save Task'
+                                    )}
+                                    </button>
+
+                                            
                                     </form>
 
                                 </Dialog.Panel>

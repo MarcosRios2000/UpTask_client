@@ -24,7 +24,7 @@ export default function AddNoteForm() {
   const { register, handleSubmit, reset, formState: { errors } } = useForm({defaultValues: initialValues})
 
   const queryClient = useQueryClient()
-  const { mutate } = useMutation({
+  const { mutate, isPending  } = useMutation({
     mutationFn: createNote,
     onError: (error) => {
       toast.error(error.message)
@@ -52,21 +52,28 @@ export default function AddNoteForm() {
             <input 
                 id="content"
                 type="text"
-                placeholder="Contenido de la nota"
+                placeholder="Note content"
                 className="w-full p-3 border-gray-300"
                 {...register('content', {
-                  required: 'El contenido de la nota es obligatorio'
+                  required: 'Required'
                 })}
             />
             {errors.content && (
               <ErrorMessage>{errors.content?.message}</ErrorMessage>
             )}
         </div>
-        <input 
-                type="submit"
-                value='Crear nota'
-                className="bg-fuchsia-600 hover:bg-fuchsia-700 w-full p-2 text-white font-black cursor-pointer"
-            />
+     
+             <button
+          type="submit"
+          disabled={isPending}
+          className="bg-fuchsia-600 hover:bg-fuchsia-700 w-full p-3 text-white font-black text-xl cursor-pointer rounded flex justify-center items-center disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          {isPending ? (
+            <div className="w-6 h-6 border-4 border-white border-t-fuchsia-700 border-solid rounded-full animate-spin"></div>
+          ) : (
+            'Create Note'
+          )}
+        </button>
     </form>
   )
 }
